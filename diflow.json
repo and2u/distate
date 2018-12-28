@@ -1,0 +1,4026 @@
+﻿{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "DiFlowApi",
+        "version": "v1.2"
+    },
+    "paths": {
+        "/api/info": {
+            "get": {
+                "tags": [
+                    "common"
+                ],
+                "summary": "Информация по api",
+                "operationId": "DiFlow\\CoreBundle\\Api\\Controller\\ApiInfoController::indexAction",
+                "responses": {
+                    "200": {
+                        "description": "Сведения об API",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_version": {
+                                            "description": "Последняя версия версия\n     *                                              API",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/dictionary/bank": {
+            "get": {
+                "tags": [
+                    "dictionary"
+                ],
+                "summary": "Получить список банков.",
+                "operationId": "DiFlow\\CoreBundle\\Api\\Dictionary\\Controller\\BankController::indexAction",
+                "responses": {
+                    "200": {
+                        "description": "Список банков",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "bik": {
+                                                "description": "БИК",
+                                                "type": "string"
+                                            },
+                                            "correspondentAccount": {
+                                                "description": "Корр счет банка",
+                                                "type": "string"
+                                            },
+                                            "fullTitle": {
+                                                "description": "Полное наименование",
+                                                "type": "string"
+                                            },
+                                            "shortTitle": {
+                                                "description": "Краткое наименование",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/dictionary/country": {
+            "get": {
+                "tags": [
+                    "dictionary"
+                ],
+                "summary": "Получить список стран ОКСМ",
+                "operationId": "DiFlow\\CoreBundle\\Api\\Dictionary\\Controller\\CountryController::indexAction",
+                "responses": {
+                    "200": {
+                        "description": "Список стран по ОКСМ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "code": {
+                                                "description": "код",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "Нaименование",
+                                                "type": "string"
+                                            },
+                                            "fullTitle": {
+                                                "description": "Полное наименование",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/dictionary/currency": {
+            "get": {
+                "tags": [
+                    "dictionary"
+                ],
+                "summary": "Получить список валют ОКВ",
+                "operationId": "DiFlow\\CoreBundle\\Api\\Dictionary\\Controller\\CurrencyController::indexAction",
+                "responses": {
+                    "200": {
+                        "description": "Список список валют по ОКВ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "code": {
+                                                "description": "код",
+                                                "type": "string"
+                                            },
+                                            "digitalCode": {
+                                                "description": "цифровой код",
+                                                "type": "string"
+                                            },
+                                            "letterCode": {
+                                                "description": "буквенный код",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "наименование валюты",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/dictionary/measurement": {
+            "get": {
+                "tags": [
+                    "dictionary"
+                ],
+                "summary": "Список единиц измерения ОКЕИ",
+                "operationId": "DiFlow\\CoreBundle\\Api\\Dictionary\\Controller\\MeasurementController::indexAction",
+                "responses": {
+                    "200": {
+                        "description": "Список единиц измерения ОКЕИ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "code": {
+                                                "description": "код",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "наименование единицы измерения",
+                                                "type": "string"
+                                            },
+                                            "localDesignation": {
+                                                "description": "условное обозначение национальное",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/dictionary/region": {
+            "get": {
+                "tags": [
+                    "dictionary"
+                ],
+                "summary": "Получить список регионов",
+                "operationId": "DiFlow\\CoreBundle\\Api\\Dictionary\\Controller\\RegionController::indexAction",
+                "responses": {
+                    "200": {
+                        "description": "Список регионов",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "code": {
+                                                "description": "код региона",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "наименование региона",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/security/token": {
+            "post": {
+                "tags": [
+                    "security"
+                ],
+                "summary": "Получение токена для авторизации",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "email": "",
+                                    "password": ""
+                                },
+                                "oneOf": [
+                                    {
+                                        "description": "Получение токена по сертификату",
+                                        "properties": {
+                                            "thumbprint": {
+                                                "description": "Отпечаток сертификата",
+                                                "type": "string"
+                                            },
+                                            "serialNumber": {
+                                                "description": "Серийный номер сертификата (в 10чной системе исчисления)",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    {
+                                        "description": "Получение токена по логину и паролю",
+                                        "properties": {
+                                            "email": {
+                                                "description": "Логин",
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "description": "Пароль",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Сведения об API",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "Успешное выполнение",
+                                            "type": "boolean"
+                                        },
+                                        "token": {
+                                            "description": "Сведения о токене",
+                                            "properties": {
+                                                "value": {
+                                                    "description": "значение токена",
+                                                    "type": "string"
+                                                },
+                                                "expireAt": {
+                                                    "description": "Время жизни токена",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/contractor": {
+            "get": {
+                "tags": [
+                    "contractor"
+                ],
+                "summary": "Получить список контрагентов компании авторизованного пользователя",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Contractor\\IndexController::indexAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список контрагентов",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "schema": "ContractorPaginator",
+                                    "properties": {
+                                        "recordsTotal": {
+                                            "description": "Получить список контрагентов компании авторизованного пользователя",
+                                            "type": "integer"
+                                        },
+                                        "rows": {
+                                            "description": "Получить список контрагентов компании авторизованного пользователя",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Contractor"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/current/user": {
+            "get": {
+                "tags": [
+                    "current"
+                ],
+                "summary": "Получение информации о текущем пользователе",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Current\\UserController::currentAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Информация о текущем пользователе",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CurrentUser"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/document/{id}/content": {
+            "get": {
+                "tags": [
+                    "package"
+                ],
+                "summary": "Получить данные по документу в формате XML.",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Document\\ContentController::indexAction",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id документа",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Содержимое документа",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "description": "id документа",
+                                            "type": "integer"
+                                        },
+                                        "content": {
+                                            "description": "Тело документа в Base64",
+                                            "type": "string"
+                                        },
+                                        "typeName": {
+                                            "description": "Наименование типа документа",
+                                            "type": "string"
+                                        },
+                                        "typeSystemName": {
+                                            "description": "Системное наименование типа документа",
+                                            "type": "string"
+                                        },
+                                        "signature": {
+                                            "description": "Подпись документа",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/document/{id}/json": {
+            "get": {
+                "tags": [
+                    "package"
+                ],
+                "summary": "Получить данные по документу в формате JSON.",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Document\\ContentController::jsonAction",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id документа",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Сведения документа в формате JSON",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/document/for_signing": {
+            "get": {
+                "tags": [
+                    "flow"
+                ],
+                "summary": "Получить документы ожидающие подписания",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Document\\IndexController::forSigningAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список квитанций ожидающих подписания",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "documents": {
+                                            "description": "документы",
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "id документа",
+                                                        "type": "integer"
+                                                    },
+                                                    "number": {
+                                                        "description": "Номер документа",
+                                                        "type": "string"
+                                                    },
+                                                    "typeTitle": {
+                                                        "description": "Тип документа",
+                                                        "type": "string"
+                                                    },
+                                                    "typeSystemName": {
+                                                        "description": "Системное наименование типа документа",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/flow/accept/{id}": {
+            "post": {
+                "tags": [
+                    "flow"
+                ],
+                "summary": "Метод принятие документа документа",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Flow\\AcceptController::acceptAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id документа для принятия",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AcceptDocument"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Документ отклонен"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/flow/decline/{id}": {
+            "post": {
+                "tags": [
+                    "flow"
+                ],
+                "summary": "Метод отклонения документа",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Flow\\DeclineController::declineAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id документа для отклонения",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeclineDocument"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Документ принят"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/flow/send/{documentAlias}": {
+            "post": {
+                "tags": [
+                    "flow"
+                ],
+                "summary": "Метод отправки документа",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Flow\\SendController::sendAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    },
+                    {
+                        "name": "documentAlias",
+                        "in": "path",
+                        "description": "наименования flow",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "bill",
+                                "universal_transfer_document_invoice",
+                                "universal_transfer_document_invoice_and_waybill",
+                                "universal_transfer_document_waybill",
+                                "universal_correction_document_invoice",
+                                "universal_correction_document_invoice_and_waybill",
+                                "universal_correction_document_waybill",
+                                "act552",
+                                "waybill551"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "schema": "SendDocument",
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/components/schemas/SendDocument"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/SendUnformalized"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/SendUCD"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "id отправленного документа",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "documentId": {
+                                            "description": "id созданного документа",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/signing/{id}": {
+            "post": {
+                "tags": [
+                    "flow"
+                ],
+                "summary": "Метод подписания документа",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Flow\\SigningController::sigAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id квитанции для подписания",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SigningDocument"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Документ подписан"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/archive/{id}": {
+            "get": {
+                "tags": [
+                    "package"
+                ],
+                "summary": "Выгрузить файлы для указанных пакетов документов.",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Package\\ArchiveController::downloadAction",
+                "responses": {
+                    "200": {
+                        "description": "zip архив пакета с документами"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/package": {
+            "get": {
+                "tags": [
+                    "package"
+                ],
+                "summary": "Получить список всех пакетов, доступных для пользователя",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Package\\IndexController::indexAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    },
+                    {
+                        "name": "packageTypes",
+                        "in": "query",
+                        "description": "Тип пакета документов",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "IN",
+                                    "OUT"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "documentStatuses",
+                        "in": "query",
+                        "description": "Статус документа",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "received",
+                                    "for_signing"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "isArchival",
+                        "in": "query",
+                        "description": "Находится ли документ в архиве",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                "0",
+                                "1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "contractor",
+                        "in": "query",
+                        "description": "id контрагента",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "createdAt",
+                        "in": "query",
+                        "description": "Интервал даты создания. Дата в формате ДД-ММ-ГГГГ",
+                        "required": false,
+                        "style": "deepObject",
+                        "explode": false,
+                        "schema": {
+                            "properties": {
+                                "from": {
+                                    "description": "Получить список всех пакетов, доступных для пользователя",
+                                    "type": "string"
+                                },
+                                "to": {
+                                    "description": "Получить список всех пакетов, доступных для пользователя",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "documentFlows",
+                        "in": "query",
+                        "description": "Тип документооборота",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "universal_invoice_and_waybill",
+                                    "universal_invoice",
+                                    "universal_waybill",
+                                    "act_552",
+                                    "waybill_551",
+                                    "unilateral",
+                                    "bilateral",
+                                    "bill",
+                                    "universal_correction_document_invoice",
+                                    "universal_correction_document_invoice_and_waybill",
+                                    "universal_correction_document_waybill"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "packageStates",
+                        "in": "query",
+                        "description": "Статус пакета",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "complete",
+                                    "declined",
+                                    "accepted",
+                                    "received",
+                                    "unilateral_has_been_received",
+                                    "waiting_of_receiving_confirmation",
+                                    "annulled",
+                                    "annulment_has_been_requested",
+                                    "waiting_of_dp_tovtorgpok",
+                                    "dp_tovtorgpr_has_been_declined",
+                                    "waiting_of_dp_rezruzak",
+                                    "dp_rezruisp_has_been_declined",
+                                    "utd_waiting_for_pdpol",
+                                    "utd_signing_pdpol_notification",
+                                    "utd_waiting_for_buyer",
+                                    "utd_waiting_of_pdotpr_seller_title_izvpol",
+                                    "utd_waiting_of_seller_title_izvpol",
+                                    "utd_waiting_of_uvutoch_signing",
+                                    "utd_waiting_of_uvutoch_izvpol",
+                                    "ucd_signing_pdpol_notification",
+                                    "ucd_waiting_for_buyer",
+                                    "ucd_waiting_of_pdotpr_seller_title_izvpol",
+                                    "ucd_waiting_of_seller_title_izvpol",
+                                    "ucd_waiting_of_uvutoch_signing",
+                                    "ucd_waiting_of_uvutoch_izvpol"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список документов, согласно переданным фильтрам",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "documentId": {
+                                            "description": "id документа",
+                                            "type": "integer"
+                                        },
+                                        "documentNumber": {
+                                            "description": "Номер документа",
+                                            "type": "string"
+                                        },
+                                        "documentDate": {
+                                            "description": "Дата документа",
+                                            "type": "string"
+                                        },
+                                        "documentStatusSystemName": {
+                                            "description": "Системное наименование статуса документа",
+                                            "type": "string"
+                                        },
+                                        "documentStatusTitle": {
+                                            "description": "Наименование статуса документа",
+                                            "type": "string"
+                                        },
+                                        "documentTypeSystemName": {
+                                            "description": "Системное наименование типа документа",
+                                            "type": "string"
+                                        },
+                                        "documentTypeTitle": {
+                                            "description": "Наименование типа документа",
+                                            "type": "string"
+                                        },
+                                        "fromCompanyId": {
+                                            "description": "id компании - отправителя",
+                                            "type": "string"
+                                        },
+                                        "fromCompanyName": {
+                                            "description": "Наименование компании - отправителя",
+                                            "type": "string"
+                                        },
+                                        "fromDivisionId": {
+                                            "description": "id подразделения - отправителя",
+                                            "type": "string"
+                                        },
+                                        "fromDivisionTitle": {
+                                            "description": "Наименование подразделения - отправителя",
+                                            "type": "string"
+                                        },
+                                        "fromPersonName": {
+                                            "description": "Имя сотрудника - отправителя",
+                                            "type": "string"
+                                        },
+                                        "fromPersonSurname": {
+                                            "description": "Фамилия сотрудника- отправителя",
+                                            "type": "string"
+                                        },
+                                        "fromPersonPatronymic": {
+                                            "description": "Отчество сотрудника - отправителя",
+                                            "type": "string"
+                                        },
+                                        "toCompanyId": {
+                                            "description": "id компании - получателя",
+                                            "type": "string"
+                                        },
+                                        "toCompanyName": {
+                                            "description": "Наименование компании - получателя",
+                                            "type": "string"
+                                        },
+                                        "toDivisionId": {
+                                            "description": "id подразделения - получателя",
+                                            "type": "string"
+                                        },
+                                        "toDivisionTitle": {
+                                            "description": "Наименование подразделения - получателя",
+                                            "type": "string"
+                                        },
+                                        "toPersonName": {
+                                            "description": "Имя сотрудника - получателя",
+                                            "type": "string"
+                                        },
+                                        "toPersonSurname": {
+                                            "description": "Фамилия сотрудника- получателя",
+                                            "type": "string"
+                                        },
+                                        "toPersonPatronymic": {
+                                            "description": "Отчество сотрудника - получателя",
+                                            "type": "string"
+                                        },
+                                        "packageFlowGroup": {
+                                            "description": "Наименование группы документооборота",
+                                            "type": "string"
+                                        },
+                                        "packageFlowSystemName": {
+                                            "description": "Системное наименование типа документооборота",
+                                            "type": "string"
+                                        },
+                                        "packageStateSystemName": {
+                                            "description": "Системное наименование статуса пакета",
+                                            "type": "string"
+                                        },
+                                        "packageType": {
+                                            "description": "Тип пакета",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/package/{id}/content": {
+            "get": {
+                "tags": [
+                    "package"
+                ],
+                "summary": "Получить список документов пакета",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Package\\IndexController::contentAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id документа",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Содержимое документа",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "id документа",
+                                                "type": "integer"
+                                            },
+                                            "content": {
+                                                "description": "Тело документа в Base64",
+                                                "type": "string"
+                                            },
+                                            "typeName": {
+                                                "description": "Наименование типа документа",
+                                                "type": "string"
+                                            },
+                                            "typeSystemName": {
+                                                "description": "Системное наименование типа документа",
+                                                "type": "string"
+                                            },
+                                            "signature": {
+                                                "description": "Подпись документа",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/service/document/create/{documentAlias}": {
+            "post": {
+                "tags": [
+                    "service"
+                ],
+                "summary": "Метод генерирует XML документа по DTO",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Service\\DocumentController::createAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    },
+                    {
+                        "name": "documentAlias",
+                        "in": "path",
+                        "description": "наименования flow",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "bill",
+                                "universal_transfer_document_invoice",
+                                "universal_transfer_document_invoice_and_waybill",
+                                "universal_transfer_document_waybill",
+                                "universal_correction_document_invoice",
+                                "universal_correction_document_invoice_and_waybill",
+                                "universal_correction_document_waybill",
+                                "act552",
+                                "waybill551"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "schema": "CreateDocumentRequest",
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Waybill551SellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Act552ExecutorTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Bill"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UTDWaybillSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UTDInvoiceAndWaybillSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UTDInvoiceSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UCDWaybillSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UCDInvoiceSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UCDInvoiceAndWaybillSellerTitle"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "XML документа в base64",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "content": {
+                                            "description": "XML документа в Base64",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/service/receipt/create/{id}/{documentAlias}": {
+            "post": {
+                "tags": [
+                    "service"
+                ],
+                "summary": "Метод генерирует XML квитанции по DTO",
+                "operationId": "DiFlow\\CoreBundle\\Api\\V1_2\\Controller\\Service\\ReceiptController::indexAction",
+                "parameters": [
+                    {
+                        "name": "API-VERSION",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "v1.2"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id документа на который создается квитанция",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "documentAlias",
+                        "in": "path",
+                        "description": "наименования flow",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "bill",
+                                "universal_transfer_document_invoice",
+                                "universal_transfer_document_invoice_and_waybill",
+                                "universal_transfer_document_waybill",
+                                "universal_correction_document_invoice",
+                                "universal_correction_document_invoice_and_waybill",
+                                "universal_correction_document_waybill",
+                                "act552",
+                                "waybill551"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "schema": "CreateDocumentRequest",
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Waybill551SellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Act552ExecutorTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Bill"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UTDWaybillSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UTDInvoiceAndWaybillSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UTDInvoiceSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UCDWaybillSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UCDInvoiceSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/UCDInvoiceAndWaybillSellerTitle"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Uvutoch"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "XML квитанции",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "content": {
+                                            "description": "XML квитанции в Base64",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Act552Signor": {
+                "description": "Подписант",
+                "properties": {
+                    "type": {
+                        "description": "Тип подписанта",
+                        "type": "string"
+                    },
+                    "surname": {
+                        "description": "Фамилия",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Имя",
+                        "type": "string"
+                    },
+                    "patronymic": {
+                        "description": "Отчество",
+                        "type": "string"
+                    },
+                    "duty": {
+                        "description": "Область полномочий.",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "Статус подписанта.",
+                        "type": "integer"
+                    },
+                    "additionalData": {
+                        "description": "Иные сведения",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Act552IpSignor"
+                    },
+                    {
+                        "$ref": "#/components/schemas/Act552UlSignor"
+                    }
+                ]
+            },
+            "Act552IpSignor": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Act552Signor"
+                    },
+                    {
+                        "description": "Подписант ИП",
+                        "properties": {
+                            "ogrnIp": {
+                                "description": "Реквизиты свидетельства о государственной регистрации ИП",
+                                "type": "string"
+                            },
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "Act552UlSignor": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Act552Signor"
+                    },
+                    {
+                        "description": "Подписант ЮЛ",
+                        "properties": {
+                            "position": {
+                                "description": "Должность",
+                                "type": "string"
+                            },
+                            "companyName": {
+                                "description": "Наименование организации",
+                                "type": "string"
+                            },
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "Act552CustomerTitle": {
+                "description": "Титул заказчика.",
+                "properties": {
+                    "date": {
+                        "description": "Дата приемки результатов",
+                        "type": "string"
+                    },
+                    "operationInformation": {
+                        "description": "Содержание операции",
+                        "type": "string"
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/Act552Signor"
+                    }
+                },
+                "type": "object"
+            },
+            "Act552Currency": {
+                "description": "Валюта и курс обмена",
+                "properties": {
+                    "code": {
+                        "description": "Валюта: Код",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "наименование валюты",
+                        "type": "string"
+                    },
+                    "exchangeRate": {
+                        "description": "Курс валюты",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ACT552InfoField": {
+                "description": "Информационное поле факта хозяйственной жизни.",
+                "properties": {
+                    "attribute": {
+                        "description": "Идентификатор",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "Значение",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Act552SubDocument": {
+                "description": "Документ",
+                "properties": {
+                    "title": {
+                        "description": "Наименование",
+                        "type": "string"
+                    },
+                    "number": {
+                        "description": "Номер",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Act552Measurement": {
+                "description": "Еденица измерения",
+                "properties": {
+                    "code": {
+                        "description": "Код единицы измерения",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Наименование единицы измерения",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Act552Table": {
+                "description": "Табличная часть",
+                "properties": {
+                    "tasks": {
+                        "description": "Сведения о произведенной работе (оказанной услуге)",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Act552Task"
+                        }
+                    },
+                    "startedAt": {
+                        "description": "Начало периода выполнения работ (оказания услуг)",
+                        "type": "string"
+                    },
+                    "endedAt": {
+                        "description": "Окончание периода выполнения работ (оказания услуг)",
+                        "type": "string"
+                    },
+                    "totalCostBeforeTax": {
+                        "description": "Стоимость товаров (работ, услуг), имущественных прав, всего без налога",
+                        "type": "string"
+                    },
+                    "totalAmountOfTax": {
+                        "description": "Сумма НДС - итого",
+                        "type": "string"
+                    },
+                    "totalCostAfterTax": {
+                        "description": "Стоимость с учетом НДС - итого",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Act552Task": {
+                "description": "Работа",
+                "properties": {
+                    "description": {
+                        "description": "Текстовое описание выполненных работ",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Наименование работ (услуг)",
+                        "type": "string"
+                    },
+                    "measurement": {
+                        "$ref": "#/components/schemas/Act552Measurement"
+                    },
+                    "price": {
+                        "description": "Цена",
+                        "type": "string"
+                    },
+                    "count": {
+                        "description": "Количество",
+                        "type": "string"
+                    },
+                    "costBeforeTax": {
+                        "description": "Стоимость без НДС",
+                        "type": "string"
+                    },
+                    "taxRate": {
+                        "description": "Ставка НДС",
+                        "type": "string"
+                    },
+                    "amountOfTax": {
+                        "description": "Сумма НДС",
+                        "type": "string"
+                    },
+                    "costAfterTax": {
+                        "description": "Стоимость с учетом НДС",
+                        "type": "string"
+                    },
+                    "infoFields": {
+                        "description": "Инфополя",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ACT552InfoField"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Act552ExecutorTitle": {
+                "description": "Титул исполнителя.",
+                "properties": {
+                    "number": {
+                        "description": "Номер документа",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата документа",
+                        "type": "string"
+                    },
+                    "executor": {
+                        "description": "id подразделения - отправителя, исполнителя",
+                        "type": "integer"
+                    },
+                    "customer": {
+                        "description": "id подразделения - отправителя, заказчика",
+                        "type": "integer"
+                    },
+                    "header": {
+                        "description": "Заголовок содержания операции",
+                        "type": "string"
+                    },
+                    "table": {
+                        "$ref": "#/components/schemas/Act552Table"
+                    },
+                    "currency": {
+                        "$ref": "#/components/schemas/Act552Currency"
+                    },
+                    "consideration": {
+                        "$ref": "#/components/schemas/Act552SubDocument"
+                    },
+                    "govContractId": {
+                        "description": "Идентификатор государственного контракта.",
+                        "type": "string"
+                    },
+                    "operationInformation": {
+                        "description": "Содержание операции",
+                        "type": "string"
+                    },
+                    "passingDate": {
+                        "description": "Дата передачи вещи, изготовленной  по договору",
+                        "type": "string"
+                    },
+                    "passingInformation": {
+                        "description": "Сведения о передаче",
+                        "type": "string"
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/Act552Signor"
+                    }
+                },
+                "type": "object"
+            },
+            "Bill": {
+                "description": "Счет на оплату.",
+                "properties": {
+                    "sender": {
+                        "description": "id подразделения - продавца",
+                        "type": "integer"
+                    },
+                    "receiver": {
+                        "description": "id подразделения - покупателя",
+                        "type": "integer"
+                    },
+                    "number": {
+                        "description": "Номер документа",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата документа",
+                        "type": "string"
+                    },
+                    "base": {
+                        "description": "Основание счета",
+                        "type": "string"
+                    },
+                    "goods": {
+                        "description": "Список товаров",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BillGood"
+                        }
+                    },
+                    "bottomText": {
+                        "description": "Информация для вывода под таблицей с товарами",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "BillGood": {
+                "description": "Товар",
+                "properties": {
+                    "title": {
+                        "description": "Наименование",
+                        "type": "string"
+                    },
+                    "measurement": {
+                        "description": "Единица измерения по ОКЕИ",
+                        "type": "string"
+                    },
+                    "price": {
+                        "description": "Цена",
+                        "type": "string"
+                    },
+                    "taxRate": {
+                        "description": "Ставка НДС",
+                        "type": "string"
+                    },
+                    "count": {
+                        "description": "Количество",
+                        "type": "string"
+                    },
+                    "costBeforeTax": {
+                        "description": "Стоимость без НДС",
+                        "type": "string"
+                    },
+                    "amountOfTax": {
+                        "description": "НДС",
+                        "type": "string"
+                    },
+                    "costAfterTax": {
+                        "description": "Стоимость с НДС",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SendUnformalized": {
+                "description": "Команда отправки неформализованного документа",
+                "properties": {
+                    "from": {
+                        "description": "id подразделения отправителя",
+                        "type": "integer"
+                    },
+                    "to": {
+                        "description": "id подразделения получателья",
+                        "type": "integer"
+                    },
+                    "number": {
+                        "description": "Номер документа",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата документа",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Заголовок документа",
+                        "type": "string"
+                    },
+                    "content": {
+                        "description": "Содержимое документа",
+                        "type": "string"
+                    },
+                    "originFileName": {
+                        "description": "Оригинальное название файла",
+                        "type": "string"
+                    },
+                    "signature": {
+                        "description": "Содержимое документа",
+                        "type": "string"
+                    },
+                    "typeTitle": {
+                        "description": "Тип документа",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UnformalizedDocumentReceivingConfirmation": {
+                "description": "Подтверждение получения."
+            },
+            "UniveraslDocumentSignor": {
+                "description": "Подписант",
+                "properties": {
+                    "type": {
+                        "description": "Тип подписанта",
+                        "type": "string"
+                    },
+                    "surname": {
+                        "description": "Фамилия",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Имя",
+                        "type": "string"
+                    },
+                    "patronymic": {
+                        "description": "Отчество",
+                        "type": "string"
+                    },
+                    "additionalData": {
+                        "description": "Иные сведения",
+                        "type": "string"
+                    },
+                    "duty": {
+                        "description": "Область полномочий.",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "Статус подписанта.",
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/UniversalDocumentIpSignor"
+                    },
+                    {
+                        "$ref": "#/components/schemas/UniveraslDocumentUlSignor"
+                    }
+                ]
+            },
+            "UniversalDocumentIpSignor": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UniveraslDocumentSignor"
+                    },
+                    {
+                        "description": "Подписант ИП",
+                        "properties": {
+                            "ogrnIp": {
+                                "description": "Реквизиты свидетельства о государственной регистрации ИП",
+                                "type": "string"
+                            },
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "UniveraslDocumentUlSignor": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UniveraslDocumentSignor"
+                    },
+                    {
+                        "description": "Подписант ЮЛ",
+                        "properties": {
+                            "position": {
+                                "description": "Должность",
+                                "type": "string"
+                            },
+                            "companyName": {
+                                "description": "Наименование организации",
+                                "type": "string"
+                            },
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "UniversalReceiptSignor": {
+                "description": "подписант квитанций УПД и УКД",
+                "properties": {
+                    "surname": {
+                        "description": "Фамилия",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Имя",
+                        "type": "string"
+                    },
+                    "patronymic": {
+                        "description": "Отчество",
+                        "type": "string"
+                    },
+                    "position": {
+                        "description": "Должность",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Uvutoch": {
+                "properties": {
+                    "clarification": {
+                        "description": "Корректировка",
+                        "type": "string"
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/UniversalReceiptSignor"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDBuyerTitle": {
+                "description": "Титул покупателя",
+                "properties": {
+                    "operationInformation": {
+                        "description": "Содержание операции. Содержание действий. Указывается «С изменением стоимости согласен» или\n«Уведомление об изменении стоимости принято к учету», или другое.",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата согласования (согласия). Обязателен, если дата согласования не совпадает со значением ДатаНапр, указанным\nв файле обмена корректировочного счета-фактуры (информация продавца) или файла обмена информации продавца.",
+                        "type": "string"
+                    },
+                    "infoFields": {
+                        "description": "Инфополя",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UCDInfoField"
+                        }
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/UniveraslDocumentSignor"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDInfoField": {
+                "description": "Информационное поле факта хозяйственной жизни",
+                "properties": {
+                    "attribute": {
+                        "description": "Идентификатор",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "Значение",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SendUCD": {
+                "description": "Команда отправки УКД",
+                "properties": {
+                    "from": {
+                        "description": "id подразделения - отправителя",
+                        "type": "integer"
+                    },
+                    "to": {
+                        "description": "id подразделения - получателя",
+                        "type": "integer"
+                    },
+                    "content": {
+                        "description": "XML в base64",
+                        "type": "string"
+                    },
+                    "signature": {
+                        "description": "Подпись",
+                        "type": "string"
+                    },
+                    "parentDocumentId": {
+                        "description": "id родительского документа",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDSellerTitle": {
+                "description": "Титул продавца УПД",
+                "properties": {
+                    "seller": {
+                        "description": "id подразделения - отправителя, продавца",
+                        "type": "integer"
+                    },
+                    "buyer": {
+                        "description": "id подразделения - отправителя, продавца",
+                        "type": "integer"
+                    },
+                    "basis": {
+                        "description": "Основание, по которому экономический субъект является составителем файла обмена корректировочного счета-фактуры\n(информации продавца). Обязателен, если составитель информации продавца не является продавцом.",
+                        "type": "string"
+                    },
+                    "invoiceCorrection": {
+                        "$ref": "#/components/schemas/UCDInvoiceCorrection"
+                    },
+                    "table": {
+                        "$ref": "#/components/schemas/UCDTable"
+                    },
+                    "factActivity": {
+                        "$ref": "#/components/schemas/UCDEconomicFactActivity"
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/UniveraslDocumentSignor"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDBase": {
+                "description": "Основание корректировки.",
+                "properties": {
+                    "name": {
+                        "description": "Наименование документа - основания. При отсутствии указывается: отсутствует.",
+                        "type": "string"
+                    },
+                    "number": {
+                        "description": "Номер документа - основания.",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата документа - основания. Обязателен при НаимОсн отличном от значения «отсутствует».",
+                        "type": "string"
+                    },
+                    "additionalInformation": {
+                        "description": "Дополнительные сведения.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDEconomicFactActivity": {
+                "description": "Содержание события (факта хозяйственной жизни) 3 – сведения о факте согласования (уведомления).",
+                "properties": {
+                    "additionalInformation": {
+                        "description": "Иные сведения об изменении стоимости.",
+                        "type": "string"
+                    },
+                    "waybill": {
+                        "description": "Реквизиты передаточных (отгрузочных) документов, к которым относится корректировка.",
+                        "type": "string"
+                    },
+                    "operationDescription": {
+                        "description": "Содержание операции. Содержание действий. Указывается «Предлагаю изменить стоимость», или «Уведомляю об изменении\nстоимости», или иное.",
+                        "type": "string"
+                    },
+                    "directionDate": {
+                        "description": "Содержание события (факта хозяйственной жизни) 3 – сведения о факте согласования (уведомления).",
+                        "type": "string"
+                    },
+                    "base": {
+                        "$ref": "#/components/schemas/UCDBase"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDInvoiceCorrectionChange": {
+                "description": "Исправление корректировочного счета-фактуры",
+                "properties": {
+                    "number": {
+                        "description": "Номер",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDCurrency": {
+                "description": "Валюта и курс обмена",
+                "properties": {
+                    "code": {
+                        "description": "Валюта. Код по Общероссийскому классификатору валют.",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Наименование. Наименование согласно Общероссийскому классификатору валют (ОКВ).",
+                        "type": "string"
+                    },
+                    "exchangeRate": {
+                        "description": "Курс валюты.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDInvoiceChange": {
+                "description": "Исправление счета-фактуры"
+            },
+            "UCDInvoice": {
+                "description": "Счет-фактура",
+                "properties": {
+                    "number": {
+                        "description": "Порядковый номер счета-фактуры, к которому составлен корректировочный счета-фактура",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата составления счета-фактуры, к которому составлен корректировочный счет-фактура",
+                        "type": "string"
+                    },
+                    "correction": {
+                        "$ref": "#/components/schemas/UCDInvoiceChange"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDInvoiceCorrection": {
+                "description": "Сведения о счете-фактере для исправления",
+                "properties": {
+                    "date": {
+                        "description": "Дата составления корректировочного счета-фактуры (строка 1 корректировочного счета-фактуры), документа об\nизменении стоимости отгруженных товаров (выполненных работ, оказанных услуг), переданных имущественных прав.",
+                        "type": "string"
+                    },
+                    "number": {
+                        "description": "Порядковый номер корректировочного счета-фактуры (строка 1 корректировочного счета-фактуры), документа об\nизменении стоимости отгруженных товаров (выполненных работ, оказанных услуг), переданных имущественных прав.",
+                        "type": "string"
+                    },
+                    "invoice": {
+                        "$ref": "#/components/schemas/UCDInvoice"
+                    },
+                    "correction": {
+                        "$ref": "#/components/schemas/UCDInvoiceCorrectionChange"
+                    },
+                    "infoFields": {
+                        "description": "Инфополя",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UCDInfoField"
+                        }
+                    },
+                    "currency": {
+                        "$ref": "#/components/schemas/UCDCurrency"
+                    },
+                    "governmentContractId": {
+                        "description": "Идетификатор госконтракта",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDAdditionalData": {
+                "description": "Дополнительные сведения о товаре (работе, услуге), имущественном праве.",
+                "properties": {
+                    "debit": {
+                        "description": "Корреспондирующие счета: дебет. Для случаев, если наличие показателя предусмотрено в установленном порядке.",
+                        "type": "string"
+                    },
+                    "credit": {
+                        "description": "Корреспондирующие счета: кредит. Для случаев, если наличие показателя предусмотрено в установленном порядке.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDAmountOfTaxChange": {
+                "description": "Изменение суммы налога",
+                "properties": {
+                    "before": {
+                        "description": "Сумма налога, до изменения (графа 8, строка А корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "after": {
+                        "description": "Сумма налога, после изменения (графа 8, строка Б корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "increase": {
+                        "description": "Сумма - увеличение (строка В корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "decrease": {
+                        "description": "Сумма - уменьшение (строка Г корректировочного счета-фактуры).",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDCostChange": {
+                "description": "Изменение стоимотси",
+                "properties": {
+                    "before": {
+                        "description": "Стоимость до изменения (строка А корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "after": {
+                        "description": "Стоимость после изменения (строка Б корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "increase": {
+                        "description": "Стоимость - увеличение (строка В корректировочного счета-фактуры). Обязателен при отсутствии СумСтоимУм.",
+                        "type": "string"
+                    },
+                    "decrease": {
+                        "description": "Стоимость - уменьшение (строка Г корректировочного счета-фактуры). Обязателен при отсутствии СумСтоимУвел.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDCountChange": {
+                "description": "Изменение колличества",
+                "properties": {
+                    "before": {
+                        "description": "Количество (объем), после изменения (графа 3, строка Б корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "after": {
+                        "description": "Количество (объем), после изменения (графа 3, строка Б корректировочного счета-фактуры).",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDExciseTaxChange": {
+                "description": "Изменение единицы измерения",
+                "properties": {
+                    "before": {
+                        "description": "В том числе сумма акциза, до изменения (графа 6, строка А корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "after": {
+                        "description": "В том числе сумма акциза, после изменения (графа 6, строка Б корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "increase": {
+                        "description": "Сумма - увеличение (строка В корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "decrease": {
+                        "description": "Сумма - уменьшение (строка Г корректировочного счета-фактуры).",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDMeasurementChange": {
+                "description": "Изменение единицы измерения",
+                "properties": {
+                    "before": {
+                        "description": "Код единицы измерения, до изменения (графа 2, строка А корректировочного счета-фактуры).\nКод по Общероссийскому классификатору единиц измерения.",
+                        "type": "string"
+                    },
+                    "after": {
+                        "description": "Код единицы измерения, после изменения (графа 2, строка Б корректировочного счета-фактуры). Код по\nОбщероссийскому классификатору единиц измерения.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDPriceChange": {
+                "description": "Цена за единицу",
+                "properties": {
+                    "before": {
+                        "description": "Цена (тариф) за единицу измерения, до изменения (графа 4, строка А корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "after": {
+                        "description": "Цена (тариф) за единицу измерения, после изменения (графа 4, строка Б корректировочного счета-фактуры).",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDTaxRateChange": {
+                "description": "Налоговая ставка",
+                "properties": {
+                    "before": {
+                        "description": "Налоговая ставка, до изменения (графа 7, строка А корректировочного счета-фактуры).",
+                        "type": "string"
+                    },
+                    "after": {
+                        "description": "Налоговая ставка, после изменения (графа 7, строка Б корректировочного счета-фактуры).",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDGood": {
+                "description": "Товар",
+                "properties": {
+                    "title": {
+                        "description": "Сведения о товаре (работе, услуге), имущественном праве.",
+                        "type": "string"
+                    },
+                    "measurement": {
+                        "$ref": "#/components/schemas/UCDMeasurementChange"
+                    },
+                    "count": {
+                        "$ref": "#/components/schemas/UCDCountChange"
+                    },
+                    "price": {
+                        "$ref": "#/components/schemas/UCDPriceChange"
+                    },
+                    "taxRate": {
+                        "$ref": "#/components/schemas/UCDTaxRateChange"
+                    },
+                    "costBeforeTax": {
+                        "$ref": "#/components/schemas/UCDCostChange"
+                    },
+                    "excise": {
+                        "$ref": "#/components/schemas/UCDExciseTaxChange"
+                    },
+                    "amountOfTax": {
+                        "$ref": "#/components/schemas/UCDAmountOfTaxChange"
+                    },
+                    "costAfterTax": {
+                        "$ref": "#/components/schemas/UCDCostChange"
+                    },
+                    "additionalData": {
+                        "$ref": "#/components/schemas/UCDAdditionalData"
+                    },
+                    "infoField": {
+                        "description": "Инфополя",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UCDInfoField"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UCDTableCostChange": {
+                "description": "Изменение стоимости табличной часть",
+                "properties": {
+                    "beforeTax": {
+                        "description": "Без НДС",
+                        "type": "string"
+                    },
+                    "afterTax": {
+                        "description": "С учетом НДС",
+                        "type": "string"
+                    },
+                    "amountOfTax": {
+                        "description": "Размер налога",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDTable": {
+                "description": "Табличная часть",
+                "properties": {
+                    "goods": {
+                        "description": "Сведения о товаре (работе, услуге), имущественном праве.",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UCDGood"
+                        }
+                    },
+                    "totalIncrease": {
+                        "$ref": "#/components/schemas/UCDTableCostChange"
+                    },
+                    "totalDecrease": {
+                        "$ref": "#/components/schemas/UCDTableCostChange"
+                    }
+                },
+                "type": "object"
+            },
+            "UCDInvoiceAndWaybillSellerTitle": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UCDSellerTitle"
+                    },
+                    {
+                        "description": "Титул продавца для УКД КСЧФДИС"
+                    }
+                ]
+            },
+            "UCDInvoiceSellerTitle": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UCDSellerTitle"
+                    },
+                    {
+                        "description": "Титул продавца для УКД КСЧФ"
+                    }
+                ]
+            },
+            "UCDWaybillSellerTitle": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UCDSellerTitle"
+                    },
+                    {
+                        "description": "Титул продавца для УКД ДИС",
+                        "properties": {
+                            "name": {
+                                "description": "Наименование документа, определенное организацией (согласованное сторонами сделки)",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "UTDBuyerTitle": {
+                "description": "Титул покупателя",
+                "properties": {
+                    "date": {
+                        "description": "Дата принятия",
+                        "type": "string"
+                    },
+                    "operationInformation": {
+                        "description": "Содержание операции",
+                        "type": "string"
+                    },
+                    "receivedBy": {
+                        "$ref": "#/components/schemas/UTDEmployeeWithDuty"
+                    },
+                    "infoFields": {
+                        "description": "Инфополя",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UTDInfoField"
+                        }
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/UniveraslDocumentSignor"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDEmployee": {
+                "description": "Сотрудник",
+                "properties": {
+                    "position": {
+                        "description": "Должность",
+                        "type": "string"
+                    },
+                    "surname": {
+                        "description": "Фамилия",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Имя",
+                        "type": "string"
+                    },
+                    "patronymic": {
+                        "description": "Отчество",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDEmployeeWithDuty": {
+                "description": "Сотрудник с основанием полномочий",
+                "properties": {
+                    "employee": {
+                        "$ref": "#/components/schemas/UTDEmployee"
+                    },
+                    "duty": {
+                        "description": "Основание полномочий",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDInfoField": {
+                "description": "Информационное поле факта хозяйственной жизни.",
+                "properties": {
+                    "attribute": {
+                        "description": "Идентификатор",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "Значение",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDCurrency": {
+                "description": "Валюта и курс обмена",
+                "properties": {
+                    "code": {
+                        "description": "Валюта. Код по Общероссийскому классификатору валют.",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Наименование. Наименование согласно Общероссийскому классификатору валют (ОКВ).",
+                        "type": "string"
+                    },
+                    "exchangeRate": {
+                        "description": "Курс валюты.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDInvoice": {
+                "description": "Счет фактура",
+                "properties": {
+                    "consignee": {
+                        "$ref": "#/components/schemas/UTDParticipant"
+                    },
+                    "consignor": {
+                        "$ref": "#/components/schemas/UTDParticipant"
+                    },
+                    "currency": {
+                        "$ref": "#/components/schemas/UTDCurrency"
+                    },
+                    "govContractId": {
+                        "description": "Идентификатор государственного контракта.",
+                        "type": "string"
+                    },
+                    "payment": {
+                        "$ref": "#/components/schemas/UTDPayment"
+                    },
+                    "infoFields": {
+                        "description": "Инфополя",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UTDInfoField"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UTDPayment": {
+                "description": "Сведения о платежно-расчетном документе",
+                "properties": {
+                    "number": {
+                        "description": "Номер платежно-расчетного документа.",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата составления платежно-расчетного документа.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDAddress": {
+                "description": "Адрес участника",
+                "properties": {
+                    "russianAddress": {
+                        "$ref": "#/components/schemas/UTDRussianAddress"
+                    },
+                    "location": {
+                        "$ref": "#/components/schemas/UTDLocationAddress"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDLocationAddress": {
+                "description": "Зарубежный адрес или адрес без типизации",
+                "properties": {
+                    "countryCode": {
+                        "description": "Код страны",
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDRussianAddress": {
+                "description": "Адрес на территории РФ",
+                "properties": {
+                    "regionCode": {
+                        "description": "Регион",
+                        "type": "string"
+                    },
+                    "postalCode": {
+                        "description": "индекс",
+                        "type": "string"
+                    },
+                    "district": {
+                        "description": "район",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "город",
+                        "type": "string"
+                    },
+                    "settlement": {
+                        "description": "населенный пункт",
+                        "type": "string"
+                    },
+                    "street": {
+                        "description": "улица",
+                        "type": "string"
+                    },
+                    "house": {
+                        "description": "дом",
+                        "type": "string"
+                    },
+                    "building": {
+                        "description": "корпус",
+                        "type": "string"
+                    },
+                    "room": {
+                        "description": "номер квартиры/офиса",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDBank": {
+                "description": "Банк",
+                "properties": {
+                    "name": {
+                        "description": "Наименование",
+                        "type": "string"
+                    },
+                    "bik": {
+                        "description": "БИК",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDBankDetails": {
+                "description": "Банковские реквизиты",
+                "properties": {
+                    "accountNumber": {
+                        "description": "Номер счета",
+                        "type": "string"
+                    },
+                    "bank": {
+                        "$ref": "#/components/schemas/UTDBank"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDContact": {
+                "description": "Контакты для связи",
+                "properties": {
+                    "phone": {
+                        "description": "Телефон",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "E-mail",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDParticipant": {
+                "description": "Участник документооборота",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/UTDAddress"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/UTDContact"
+                    },
+                    "bankDetails": {
+                        "$ref": "#/components/schemas/UTDBankDetails"
+                    }
+                },
+                "type": "object",
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/UTDIpParticipant"
+                    },
+                    {
+                        "$ref": "#/components/schemas/UTDUlParticipant"
+                    }
+                ]
+            },
+            "UTDIpParticipant": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UTDParticipant"
+                    },
+                    {
+                        "description": "Участник документооборота - ИП",
+                        "properties": {
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            },
+                            "ogrn": {
+                                "description": "ОГРНИП",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Имя",
+                                "type": "string"
+                            },
+                            "surname": {
+                                "description": "Фамилия",
+                                "type": "string"
+                            },
+                            "patronymic": {
+                                "description": "Отчество",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "UTDUlParticipant": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UTDParticipant"
+                    },
+                    {
+                        "description": "Участник документооборота - ЮЛ",
+                        "properties": {
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Название компании",
+                                "type": "string"
+                            },
+                            "kpp": {
+                                "description": "КПП",
+                                "type": "string"
+                            },
+                            "okpo": {
+                                "description": "ОКПО",
+                                "type": "string"
+                            },
+                            "divisionName": {
+                                "description": "Название структурного подразделения",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "UTDBasis": {
+                "description": "Основание отгрузки товаров (передачи результатов работ), передачи  имущественных прав (предъявления\n *     оказанных услуг)",
+                "properties": {
+                    "title": {
+                        "description": "Наименование",
+                        "type": "string"
+                    },
+                    "number": {
+                        "description": "Номер",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDContract": {
+                "description": "Сведения о передаче вещи, изготовленной  по договору подряда",
+                "properties": {
+                    "passingInformation": {
+                        "description": "Сведения о передаче",
+                        "type": "string"
+                    },
+                    "passingDate": {
+                        "description": "Дата передачи вещи, изготовленной  по договору",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDShipment": {
+                "description": "Сведения о передаче (сдаче) товаров, (результатов работ), имущественных прав (о предъявлении оказанных услуг).",
+                "properties": {
+                    "operationInformation": {
+                        "description": "Содержание операции.\nУказывается, например, «Товары переданы», «Результаты работ сдал», «Услуги оказаны в полном объеме» или другое",
+                        "type": "string"
+                    },
+                    "shipmentDate": {
+                        "description": "Дата отгрузки товаров (передачи результатов работ), передачи имущественных прав (предъявления оказанных услуг)",
+                        "type": "string"
+                    },
+                    "basis": {
+                        "$ref": "#/components/schemas/UTDBasis"
+                    },
+                    "passedBy": {
+                        "$ref": "#/components/schemas/UTDEmployeeWithDuty"
+                    },
+                    "transportation": {
+                        "$ref": "#/components/schemas/UTDTransportation"
+                    },
+                    "contract": {
+                        "$ref": "#/components/schemas/UTDContract"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDTransportation": {
+                "description": "Транспортировка и груз.",
+                "properties": {
+                    "transportationInformation": {
+                        "description": "Сведения о транспортировке и грузе",
+                        "type": "string"
+                    },
+                    "waybill": {
+                        "$ref": "#/components/schemas/UTDWaybill"
+                    },
+                    "carrier": {
+                        "$ref": "#/components/schemas/UTDParticipant"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDWaybill": {
+                "description": "Сведения о передаче вещи, изготовленной  по договору подряда",
+                "properties": {
+                    "number": {
+                        "description": "Номер транспортной накладной.",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата транспортной накладной.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDCountry": {
+                "description": "Страна по общероссийскому классификатору стран мира",
+                "properties": {
+                    "code": {
+                        "description": "Цифровой код страны происхождения товара",
+                        "type": "string"
+                    },
+                    "alpha3": {
+                        "description": "Краткое наименование страны происхождения товара. Трехбуквенный код",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDDeclaration": {
+                "description": "Сведения о таможенной декларации.",
+                "properties": {
+                    "number": {
+                        "description": "Номер",
+                        "type": "string"
+                    },
+                    "country": {
+                        "$ref": "#/components/schemas/UTDCountry"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDGood": {
+                "description": "Товар",
+                "properties": {
+                    "title": {
+                        "description": "Наименование товара (описание выполненных работ, оказанных услуг), имущественных прав (графа 1 счета-фактуры).",
+                        "type": "string"
+                    },
+                    "measurement": {
+                        "$ref": "#/components/schemas/UTDMeasurement"
+                    },
+                    "count": {
+                        "description": "Количество (объем).",
+                        "type": "string"
+                    },
+                    "price": {
+                        "description": "Цена (тариф) за единицу измерения",
+                        "type": "string"
+                    },
+                    "code": {
+                        "description": "Характеристика товара",
+                        "type": "string"
+                    },
+                    "costBeforeTax": {
+                        "description": "Стоимость товаров (работ, услуг), имущественных прав без налога - всего",
+                        "type": "string"
+                    },
+                    "excise": {
+                        "description": "Акциз",
+                        "type": "string"
+                    },
+                    "taxRate": {
+                        "description": "Налоговая ставка (графа 7 счета-фактуры).",
+                        "type": "string"
+                    },
+                    "costAfterTax": {
+                        "description": "Стоимость товаров (работ, услуг), имущественных прав с налогом - всего",
+                        "type": "string"
+                    },
+                    "amountOfTax": {
+                        "description": "Сумма налога, предъявляемая покупателю",
+                        "type": "string"
+                    },
+                    "kind": {
+                        "description": "Признак Товар/Работа/Услуга/Право/Иное",
+                        "type": "string"
+                    },
+                    "declaration": {
+                        "$ref": "#/components/schemas/UTDDeclaration"
+                    },
+                    "infoField": {
+                        "description": "Инфополя",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UTDInfoField"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UTDMeasurement": {
+                "description": "Еденица измерения",
+                "properties": {
+                    "code": {
+                        "description": "Код единицы измерения (графа 2 счета-фактуры)",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Наименование единицы измерения (условное обозначение национальное, графа 2а счета-фактуры)",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDTabale": {
+                "description": "Табличная часть",
+                "properties": {
+                    "goods": {
+                        "description": "Список товаров",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UTDGood"
+                        }
+                    },
+                    "totalAmountOfTax": {
+                        "description": "Общая сумма налога по документу",
+                        "type": "string"
+                    },
+                    "totalCostBeforeTax": {
+                        "description": "Общая стоимость по документа до налогов",
+                        "type": "string"
+                    },
+                    "totalCostAfterTax": {
+                        "description": "Общая стоимость товаров (работ услуг), имещественных прав с налогом",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDSellerTitle": {
+                "description": "Титул продавца УПД",
+                "properties": {
+                    "seller": {
+                        "description": "id подразделения - отправителя, продавца",
+                        "type": "integer"
+                    },
+                    "buyer": {
+                        "description": "id подразделения - отправителя, продавца",
+                        "type": "integer"
+                    },
+                    "number": {
+                        "description": "Номер",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата документа",
+                        "type": "string"
+                    },
+                    "table": {
+                        "$ref": "#/components/schemas/UTDTabale"
+                    },
+                    "invoice": {
+                        "$ref": "#/components/schemas/UTDInvoice"
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/UniveraslDocumentSignor"
+                    }
+                },
+                "type": "object"
+            },
+            "UTDInvoiceAndWaybillSellerTitle": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UTDSellerTitle"
+                    },
+                    {
+                        "description": "Титул продавца УПД СЧФДОП",
+                        "properties": {
+                            "shipment": {
+                                "$ref": "#/components/schemas/UTDShipment"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "UTDInvoiceSellerTitle": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UTDSellerTitle"
+                    },
+                    {
+                        "description": "Титул продавца УПД СЧФ"
+                    }
+                ]
+            },
+            "UTDWaybillSellerTitle": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/UTDSellerTitle"
+                    },
+                    {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/UTDInvoiceAndWaybillSellerTitle"
+                            },
+                            {
+                                "description": "Титул продавца для УПД ДОП",
+                                "properties": {
+                                    "name": {
+                                        "description": "Наименование документа, определенное организацией (согласованное сторонами сделки)",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Waybill551BuyerTitle": {
+                "description": "Титул покупателя",
+                "properties": {
+                    "date": {
+                        "description": "Дата принятия товара (получения груза)",
+                        "type": "string"
+                    },
+                    "receivedBy": {
+                        "$ref": "#/components/schemas/Waybill551Employee"
+                    },
+                    "operationInformation": {
+                        "description": "Содержание операции",
+                        "type": "string"
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/Waybill551Signor"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551Employee": {
+                "description": "Сотрудник.",
+                "properties": {
+                    "surname": {
+                        "description": "Фамилия",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Имя",
+                        "type": "string"
+                    },
+                    "patronymic": {
+                        "description": "Отчество",
+                        "type": "string"
+                    },
+                    "position": {
+                        "description": "Должность",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551Signor": {
+                "description": "Подписант",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "surname": {
+                        "description": "Фамилия",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Имя",
+                        "type": "string"
+                    },
+                    "patronymic": {
+                        "description": "Отчество",
+                        "type": "string"
+                    },
+                    "additionalData": {
+                        "description": "Иные сведения",
+                        "type": "string"
+                    },
+                    "duty": {
+                        "description": "Область полномочий.",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "Статус подписанта.",
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Waybill551IpSignor"
+                    },
+                    {
+                        "$ref": "#/components/schemas/Waybill551UlSignor"
+                    }
+                ]
+            },
+            "Waybill551IpSignor": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Waybill551Signor"
+                    },
+                    {
+                        "description": "Подписант ИП",
+                        "properties": {
+                            "ogrnIp": {
+                                "description": "Реквизиты свидетельства о государственной регистрации ИП",
+                                "type": "string"
+                            },
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "Waybill551UlSignor": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Waybill551Signor"
+                    },
+                    {
+                        "description": "Подписант ЮЛ",
+                        "properties": {
+                            "position": {
+                                "description": "Должность",
+                                "type": "string"
+                            },
+                            "companyName": {
+                                "description": "Наименование организации",
+                                "type": "string"
+                            },
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "Waybill551Currency": {
+                "description": "Валюта и курс обмена",
+                "properties": {
+                    "code": {
+                        "description": "Валюта: Код",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Наименование валюты",
+                        "type": "string"
+                    },
+                    "exchangeRate": {
+                        "description": "Курс валюты",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551Consideration": {
+                "description": "Основание",
+                "properties": {
+                    "title": {
+                        "description": "Наименование",
+                        "type": "string"
+                    },
+                    "number": {
+                        "description": "Номер",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551FactActivity1": {
+                "description": "Содержание факта хозяйственной жизни (1) - сведения об участниках факта хозяйственной жизни,\n *     основаниях и обстоятельствах его проведения",
+                "properties": {
+                    "consignor": {
+                        "$ref": "#/components/schemas/Waybill551Participant"
+                    },
+                    "consignee": {
+                        "$ref": "#/components/schemas/Waybill551Participant"
+                    },
+                    "carrier": {
+                        "$ref": "#/components/schemas/Waybill551Participant"
+                    },
+                    "consideration": {
+                        "$ref": "#/components/schemas/Waybill551Consideration"
+                    },
+                    "govContractId": {
+                        "description": "Идентификатор государственного контракта.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551FactActivity3": {
+                "description": "Содержание факта хозяйственной жизни (3) - сведения о факте передачи (об отпуске груза)",
+                "properties": {
+                    "distributedAt": {
+                        "description": "Дата отпуска груза",
+                        "type": "string"
+                    },
+                    "enclosureCount": {
+                        "description": "Приложение (паспорта, сертификаты и тому подобное) - количество листов",
+                        "type": "string"
+                    },
+                    "distributedBy": {
+                        "$ref": "#/components/schemas/Waybill551Employee"
+                    },
+                    "operationInformation": {
+                        "description": "Содержание операции",
+                        "type": "string"
+                    },
+                    "motorWaybill": {
+                        "$ref": "#/components/schemas/Waybill551MotorWaybill"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551InfoField": {
+                "description": "Текстовая информация",
+                "properties": {
+                    "attribute": {
+                        "description": "Идентификатор",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "Значение",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551MotorWaybill": {
+                "description": "Траспортная накладная",
+                "properties": {
+                    "title": {
+                        "description": "Наименование",
+                        "type": "string"
+                    },
+                    "number": {
+                        "description": "Номер",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551Address": {
+                "description": "Адрес",
+                "properties": {
+                    "russianAddress": {
+                        "$ref": "#/components/schemas/Waybill551RussianAddress"
+                    },
+                    "location": {
+                        "$ref": "#/components/schemas/Waybill551LocationAddress"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551LocationAddress": {
+                "description": "Адрес местонахождения/почтовый адрес (информация об адресе, в том числе об адресе за пределами\n *     территории Российской Федерации).",
+                "properties": {
+                    "countryCode": {
+                        "description": "Код страны",
+                        "type": "string"
+                    },
+                    "address": {
+                        "description": "Адрес",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551RussianAddress": {
+                "description": "Адрес на территории РФ",
+                "properties": {
+                    "regionCode": {
+                        "description": "Регион",
+                        "type": "string"
+                    },
+                    "postalCode": {
+                        "description": "индекс",
+                        "type": "string"
+                    },
+                    "district": {
+                        "description": "район",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "город",
+                        "type": "string"
+                    },
+                    "settlement": {
+                        "description": "населенный пункт",
+                        "type": "string"
+                    },
+                    "street": {
+                        "description": "улица",
+                        "type": "string"
+                    },
+                    "house": {
+                        "description": "дом",
+                        "type": "string"
+                    },
+                    "building": {
+                        "description": "корпус",
+                        "type": "string"
+                    },
+                    "room": {
+                        "description": "номер квартиры/офиса",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551BankDetails": {
+                "description": "Банковские реквизиты",
+                "properties": {
+                    "accountNumber": {
+                        "description": "Номер счета",
+                        "type": "string"
+                    },
+                    "bank": {
+                        "description": "Банк"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551Contact": {
+                "description": "Контакт",
+                "properties": {
+                    "phone": {
+                        "description": "Телефон",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "E-mail",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551Participant": {
+                "description": "Участник документооборота",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/Waybill551Address"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Waybill551Contact"
+                    },
+                    "bankDetails": {
+                        "$ref": "#/components/schemas/Waybill551BankDetails"
+                    }
+                },
+                "type": "object",
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Waybill551IpParticipant"
+                    },
+                    {
+                        "$ref": "#/components/schemas/Waybill551UlParticipant"
+                    }
+                ]
+            },
+            "Waybill551IpParticipant": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Waybill551Participant"
+                    },
+                    {
+                        "description": "Участник документооборота - ИП",
+                        "properties": {
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            },
+                            "ogrn": {
+                                "description": "ОГРНИП",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Имя",
+                                "type": "string"
+                            },
+                            "surname": {
+                                "description": "Фамилия",
+                                "type": "string"
+                            },
+                            "patronymic": {
+                                "description": "Отчество",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "Waybill551UlParticipant": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Waybill551Participant"
+                    },
+                    {
+                        "description": "Участник документооборота - ЮЛ",
+                        "properties": {
+                            "inn": {
+                                "description": "ИНН",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Название компании",
+                                "type": "string"
+                            },
+                            "kpp": {
+                                "description": "КПП",
+                                "type": "string"
+                            },
+                            "okpo": {
+                                "description": "ОКПО",
+                                "type": "string"
+                            },
+                            "divisionName": {
+                                "description": "Название структурного подразделения",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                ]
+            },
+            "Waybill551Good": {
+                "description": "Сведения об ассортименте, количестве, стоимости товара",
+                "properties": {
+                    "title": {
+                        "description": "Наименование",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Характеристика товара",
+                        "type": "string"
+                    },
+                    "sort": {
+                        "description": "Сорт товара",
+                        "type": "string"
+                    },
+                    "article": {
+                        "description": "Артикул товара",
+                        "type": "string"
+                    },
+                    "code": {
+                        "description": "Код товара",
+                        "type": "string"
+                    },
+                    "measurement": {
+                        "$ref": "#/components/schemas/Waybill551Measurement"
+                    },
+                    "packageType": {
+                        "description": "Вид упаковки",
+                        "type": "string"
+                    },
+                    "countInOnePlace": {
+                        "description": "Количество в одном месте",
+                        "type": "string"
+                    },
+                    "placeCount": {
+                        "description": "Количество мест, штук",
+                        "type": "string"
+                    },
+                    "gross": {
+                        "description": "Масса брутто",
+                        "type": "string"
+                    },
+                    "haveToGive": {
+                        "description": "Надлежит отпустить",
+                        "type": "string"
+                    },
+                    "net": {
+                        "description": "Количество (масса нетто) передано (отпущено)",
+                        "type": "string"
+                    },
+                    "price": {
+                        "description": "Цена",
+                        "type": "string"
+                    },
+                    "costBeforeTax": {
+                        "description": "Стоимость без учета НДС",
+                        "type": "string"
+                    },
+                    "taxRate": {
+                        "description": "Налоговая ставка",
+                        "type": "string"
+                    },
+                    "amountOfTax": {
+                        "description": "Сумма НД",
+                        "type": "string"
+                    },
+                    "costAfterTax": {
+                        "description": "Стоимость с учетом НДС",
+                        "type": "string"
+                    },
+                    "debit": {
+                        "description": "Корреспондирующие счета: дебет",
+                        "type": "string"
+                    },
+                    "credit": {
+                        "description": "Корреспондирующие счета: кредит",
+                        "type": "string"
+                    },
+                    "infoFields": {
+                        "description": "Инфополя",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Waybill551InfoField"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551Measurement": {
+                "description": "Еденица измерения",
+                "properties": {
+                    "code": {
+                        "description": "Код",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Наименование единицы измерения",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551Table": {
+                "description": "Табличная часть",
+                "properties": {
+                    "goods": {
+                        "description": "Товары",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Waybill551Good"
+                        }
+                    },
+                    "totalPlaceCount": {
+                        "description": "Количество мест, штук (всего)",
+                        "type": "string"
+                    },
+                    "totalGross": {
+                        "description": "Масса брутто (всего)",
+                        "type": "string"
+                    },
+                    "totalNet": {
+                        "description": "Количество (масса нетто, всего)",
+                        "type": "string"
+                    },
+                    "totalCostBeforeTax": {
+                        "description": "Стоимость всего, без налога (всего)",
+                        "type": "string"
+                    },
+                    "totalAmountOfTax": {
+                        "description": "Сумма налога (всего)",
+                        "type": "string"
+                    },
+                    "totalCostAfterTax": {
+                        "description": "Стоимость всего, с учётом налога (всего)",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Waybill551SellerTitle": {
+                "description": "Титул продавца",
+                "properties": {
+                    "seller": {
+                        "description": "id подразделения - отправителя, продавца",
+                        "type": "integer"
+                    },
+                    "buyer": {
+                        "description": "id подразделения - получателя, покупателя",
+                        "type": "integer"
+                    },
+                    "number": {
+                        "description": "Номер документа",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Дата документа",
+                        "type": "string"
+                    },
+                    "currency": {
+                        "$ref": "#/components/schemas/Waybill551Currency"
+                    },
+                    "table": {
+                        "$ref": "#/components/schemas/Waybill551Table"
+                    },
+                    "factActivity1": {
+                        "$ref": "#/components/schemas/Waybill551FactActivity1"
+                    },
+                    "factActivity3": {
+                        "$ref": "#/components/schemas/Waybill551FactActivity3"
+                    },
+                    "signor": {
+                        "$ref": "#/components/schemas/Waybill551Signor"
+                    }
+                },
+                "type": "object"
+            },
+            "AcceptDocument": {
+                "description": "Принятие документа",
+                "properties": {
+                    "content": {
+                        "description": "XML в base64",
+                        "type": "string"
+                    },
+                    "signature": {
+                        "description": "Подпись",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "DeclineDocument": {
+                "description": "Отклонение документа",
+                "properties": {
+                    "content": {
+                        "description": "XML в base64",
+                        "type": "string"
+                    },
+                    "signature": {
+                        "description": "Подпись",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SendDocument": {
+                "description": "Отправка документа",
+                "properties": {
+                    "from": {
+                        "description": "id подразделения - отправителя",
+                        "type": "integer"
+                    },
+                    "to": {
+                        "description": "id подразделения - получателя",
+                        "type": "integer"
+                    },
+                    "content": {
+                        "description": "XML в base64",
+                        "type": "string"
+                    },
+                    "signature": {
+                        "description": "Подпись",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SigningDocument": {
+                "description": "Подписание документа",
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "signature": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Contractor": {
+                "properties": {
+                    "id": {
+                        "description": "id компании-контрагента",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Наименование компании",
+                        "type": "string"
+                    },
+                    "inn": {
+                        "description": "ИНН",
+                        "type": "string"
+                    },
+                    "ogrn": {
+                        "description": "ОРГН",
+                        "type": "string"
+                    },
+                    "divisionId": {
+                        "description": "id главного подразделения",
+                        "type": "integer"
+                    },
+                    "kpp": {
+                        "description": "КПП",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Название подразделения",
+                        "type": "string"
+                    },
+                    "address": {
+                        "description": "Адрес",
+                        "$ref": "#/components/schemas/Address"
+                    }
+                },
+                "type": "object"
+            },
+            "CurrentUser": {
+                "properties": {
+                    "employee": {
+                        "description": "Сотрудник",
+                        "properties": {
+                            "email": {
+                                "description": "email сотрудника",
+                                "type": "string"
+                            },
+                            "position": {
+                                "description": "Должность",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "person": {
+                        "description": "Пользователь",
+                        "properties": {
+                            "socialNumber": {
+                                "description": "СНИЛС",
+                                "type": "string"
+                            },
+                            "surname": {
+                                "description": "Фамилия",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Имя",
+                                "type": "string"
+                            },
+                            "patronymic": {
+                                "description": "Отчество",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "company": {
+                        "description": "Компания",
+                        "type": "string",
+                        "$ref": "#/components/schemas/CurrentCompany"
+                    },
+                    "certificate": {
+                        "description": "Сертификат выбранный для подписания",
+                        "properties": {
+                            "validFrom": {
+                                "description": "Дата с",
+                                "type": "string"
+                            },
+                            "validUntil": {
+                                "description": "Дата до",
+                                "type": "string"
+                            },
+                            "thumbprint": {
+                                "description": "Отпечаток",
+                                "type": "string"
+                            },
+                            "active": {
+                                "description": "Признак активного сертификата",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "CurrentCompany": {
+                "properties": {
+                    "name": {
+                        "description": "Название компании",
+                        "type": "string"
+                    },
+                    "inn": {
+                        "description": "ИНН",
+                        "type": "string"
+                    },
+                    "bik": {
+                        "description": "БИК",
+                        "type": "string"
+                    },
+                    "ogrn": {
+                        "description": "ОГРН",
+                        "type": "string"
+                    },
+                    "infsoobBeenSent": {
+                        "description": "Признак отправленного информационного сообщения",
+                        "type": "boolean"
+                    },
+                    "accountNumber": {
+                        "description": "Номер расчетного счета",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "Тип компании",
+                        "properties": {
+                            "systemName": {
+                                "description": "системное наименование типа компании",
+                                "type": "string"
+                            },
+                            "title": {
+                                "description": "наименование типа компании",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "taxAuthority": {
+                        "description": "Налоговый орган",
+                        "properties": {
+                            "code": {
+                                "description": "Код",
+                                "type": "string"
+                            },
+                            "title": {
+                                "description": "наименование",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "division": {
+                        "description": "Главное подразделение компании",
+                        "properties": {
+                            "id": {
+                                "description": "системное наименование типа компании",
+                                "type": "string"
+                            },
+                            "kpp": {
+                                "description": "КПП",
+                                "type": "string"
+                            },
+                            "title": {
+                                "description": "название",
+                                "type": "string"
+                            },
+                            "classificationNumber": {
+                                "description": "ОКПО",
+                                "type": "string"
+                            },
+                            "address": {
+                                "description": "Адрес",
+                                "$ref": "#/components/schemas/Address"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "Address": {
+                "description": "Адрес",
+                "properties": {
+                    "country": {
+                        "description": "Название подразделения",
+                        "properties": {
+                            "code": {
+                                "description": "Код страны",
+                                "type": "string"
+                            },
+                            "title": {
+                                "description": "Название страны",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "region": {
+                        "description": "Регион",
+                        "properties": {
+                            "code": {
+                                "description": "Код региона",
+                                "type": "string"
+                            },
+                            "title": {
+                                "description": "Название региона",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "postalCode": {
+                        "description": "Индекс",
+                        "type": "string"
+                    },
+                    "district": {
+                        "description": "Индекс",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "Город",
+                        "type": "string"
+                    },
+                    "settlement": {
+                        "description": "Индекс",
+                        "type": "string"
+                    },
+                    "street": {
+                        "description": "улица",
+                        "type": "string"
+                    },
+                    "house": {
+                        "description": "дом",
+                        "type": "string"
+                    },
+                    "building": {
+                        "description": "корпус",
+                        "type": "string"
+                    },
+                    "room": {
+                        "description": "номер квартиры/офиса",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "API-TOKEN",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "security",
+            "description": "Авторизация"
+        },
+        {
+            "name": "dictionary",
+            "description": "Справочники"
+        },
+        {
+            "name": "common",
+            "description": "Общие методы"
+        },
+        {
+            "name": "flow",
+            "description": "Документооборот"
+        },
+        {
+            "name": "service",
+            "description": "Сервисы"
+        },
+        {
+            "name": "current",
+            "description": "Сведения про авторизованного пользователя"
+        },
+        {
+            "name": "package",
+            "description": "Сведения по документу"
+        },
+        {
+            "name": "contractor",
+            "description": "Контрагенты"
+        }
+    ]
+}
